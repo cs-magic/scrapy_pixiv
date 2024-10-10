@@ -28,10 +28,10 @@ class MongoPipeline(object):
         :param spider:
         :return:
         """
-        coll = "novels"
         item['_id'] = item['id']
         try:
-            self.db[coll].insert_one(item)
+            self.db[item["coll"]].insert_one(item)
         except DuplicateKeyError:       # 考虑到了history需要不断更新记录，所以使用update而不用insert
-            self.db[coll].update_one({"_id": item.get("_id")}, {"$set": item}, upsert=True)
+            pass
+            # self.db[item["coll"]].update_one({"_id": item.get("_id")}, {"$set": item}, upsert=True)
         return item

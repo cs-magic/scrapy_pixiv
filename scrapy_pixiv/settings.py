@@ -12,6 +12,7 @@ BOT_NAME = "scrapy_pixiv"
 SPIDER_MODULES = ["scrapy_pixiv.spiders"]
 NEWSPIDER_MODULE = "scrapy_pixiv.spiders"
 
+LOG_LEVEL = "INFO"
 
 MONGO_URI = "localhost:27017"
 MONGO_DB  = 'rama' # 拉玛羊驼
@@ -23,12 +24,12 @@ USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 1
+CONCURRENT_REQUESTS = 10 * 2
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 1
+# DOWNLOAD_DELAY = 0.01
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
